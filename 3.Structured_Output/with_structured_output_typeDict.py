@@ -34,9 +34,9 @@ class Review(TypedDict):
         Optional[list[str]],
         "Write down all pros inside list"
         ]
-    pros: Annotated[
+    cons: Annotated[
         Optional[list[str]],
-        "Write down all pros inside list"
+        "Write down all cons inside list"
         ]
     name: Annotated[
         str,
