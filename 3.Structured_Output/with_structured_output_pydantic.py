@@ -3,6 +3,21 @@ from dotenv import load_dotenv
 from pydantic import BaseModel,Field
 from typing import Literal,Optional
 
+# Pydantic aur TypedDict dono ka kaam schema/structure define karna hai,
+# lekin unka purpose thoda different hota hai.
+#
+# 1) Pydantic ka use isliye hota hai kyunki hum LLM se structured output expect karte hain.
+#    Model output ko BaseModel ke andar validate, parse, aur type-safe bana diya jata hai.
+#    Isse aapko output me missing fields, wrong types, ya invalid values ka issue immediately milta hai.
+#    Yeh LangChain me with_structured_output(...) ke saath kaafi useful hota hai.
+#
+# 2) TypedDict ek static type annotation hai. Yeh runtime validation nahi karta.
+#    Sirf code editor aur type checker ko help karta hai ki object kis structure ka hona chahiye.
+#    Example: dict ke keys aur value types define kar sakta hai, lekin actual data ko verify nahi karta.
+#
+# 3) Agar aapko LLM se data parse karna hai aur guarantee chahiye ki output valid schema ke hisaab se aaye,
+#    toh Pydantic best choice hai. TypedDict sirf typing ke liye useful hai, validation ke liye nahi.
+
 load_dotenv()
 
 model = ChatGoogleGenerativeAI(model = "gemini-3.1-flash-lite")
