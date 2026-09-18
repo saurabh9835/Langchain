@@ -25,7 +25,6 @@ prompt1 = PromptTemplate(
     input_variables=['text']
 )
 
-# Doosra prompt - questions aur answers ke liye
 prompt2 = PromptTemplate(
     template = "give 5 question answer from the following text \n {text}",
     input_variables=['text']
