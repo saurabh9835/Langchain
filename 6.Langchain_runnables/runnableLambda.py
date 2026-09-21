@@ -6,7 +6,7 @@ from langchain_core.runnables import RunnableSequence,RunnableParallel,RunnableP
 
 load_dotenv()
 
-model = ChatGoogleGenerativeAI(model="gemini-3.1-flash-lite" , )
+model = ChatGoogleGenerativeAI(model="gemini-3.1-flash-lite" )
 
 parser = StrOutputParser()
 
